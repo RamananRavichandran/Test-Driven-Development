@@ -1,6 +1,7 @@
-from src.ip_checker import (ip_check)
+from src.ip_checker import ip_check
 import pytest
-'''
+
+
 # Function to initialize setup
 @pytest.fixture(scope='function', autouse=True)
 def ip_test_config(request):
@@ -18,7 +19,7 @@ def ip_test_config(request):
     print("\nTEARDOWN mechanism Ended")
 
 
-'''
+
 @pytest.fixture(scope='function', autouse=True)
 def ip_test_config_using_addfinalizer(request) -> tuple:
     print("\nRunning setup method...")
@@ -27,7 +28,7 @@ def ip_test_config_using_addfinalizer(request) -> tuple:
 
     # Function to clear the resources
     def clear_resource():
-        print("Running the teardown code")
+        print("\nRunning the teardown code")
         ip.delete_objects()
         ip1.delete_objects()
 
@@ -35,7 +36,7 @@ def ip_test_config_using_addfinalizer(request) -> tuple:
 
     return ip, ip1
 
-'''
+
 # Function to test the validate_it function
 def test_validity(ip_test_config):
     ip, ip1 = ip_test_config
@@ -51,7 +52,7 @@ def test_find_class(ip_test_config):
     assert ip.find_class() == "E"
     assert ip1.find_class() == "A"
 
-'''
+
 # Function to run test with setup and teardown using addfinalizer
 def test_ip_with_addfinalizer(ip_test_config_using_addfinalizer):
     ip, ip1 = ip_test_config_using_addfinalizer
