@@ -3,7 +3,7 @@ import pytest
 def calculate_square(x):
     return x * x
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def setup_data():
     data = 5
     print("\nSetting up resources...")

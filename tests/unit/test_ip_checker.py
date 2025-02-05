@@ -19,7 +19,7 @@ def ip_test_config(request):
     print("\nTEARDOWN mechanism Ended")
 
 
-
+'''
 @pytest.fixture(scope='function', autouse=True)
 def ip_test_config_using_addfinalizer(request) -> tuple:
     print("\nRunning setup method...")
@@ -35,7 +35,7 @@ def ip_test_config_using_addfinalizer(request) -> tuple:
     request.addfinalizer(clear_resource)
 
     return ip, ip1
-
+'''
 
 # Function to test the validate_it function
 def test_validity(ip_test_config):
@@ -52,7 +52,7 @@ def test_find_class(ip_test_config):
     assert ip.find_class() == "E"
     assert ip1.find_class() == "A"
 
-
+'''
 # Function to run test with setup and teardown using addfinalizer
 def test_ip_with_addfinalizer(ip_test_config_using_addfinalizer):
     ip, ip1 = ip_test_config_using_addfinalizer
@@ -64,6 +64,4 @@ def test_ip_with_addfinalizer(ip_test_config_using_addfinalizer):
     assert ip.find_class() == "E"
     assert ip1.find_class() == "A"
 
-
-
-
+'''
